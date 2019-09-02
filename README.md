@@ -82,6 +82,9 @@ ple in the salmon vs trout) the sequences had 17/20 bases matching so I grepped 
  to capture the correct values. And on that note there was one more sequence that had 16/20 level of similarity so t\
 hat could also be a potential site.
 
+**parse_water_check_pams_min.pl**
+An updated version of parse_water_check_pams.pl that includes the extra functions of selecting and printing out on a separate file only the sequences that have the minimum value out of 20 (so very simple for now though I have some plans in mind) on a separate file along with a file that includes all the key values with the associate sequences for reference, a file ending in "..water_map.txt".
+
 Function: - reads in the water file and parses the reference sequences that matched with the subject sequence, picki\
 ng the same unique numerical identifies for their FASTA id.
           - aligns those sequences with the file
