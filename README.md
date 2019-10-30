@@ -3,12 +3,9 @@ My pipeline that locates potential Crispr primer regions for eDNA analysis.
 
 This walkthrough shall explain how the crRNA selection pipeline works.
 
-First we select two species: our species of interest and a close relative. In this case we have the complete mitocho\
-ndrion of Atlantic Salmon and Atlantic trout.
+First we select two species: our species of interest and a close relative. In this case we have the complete mitochondrion of Atlantic Salmon and Atlantic trout.
 
-For the record, doing a quick global alignment between the two mitochondria using Waterman-Smith gives us 83.9% simil\
-arity between the two sequences. this is because both of them have extended tailing ends so doing a local alignment \
-gives us 94.7% similarity.
+For the record, doing a quick global alignment between the two mitochondria using Waterman-Smith gives us 83.9% similarity between the two sequences. The low similarity is because both of them have extended tailing ends so doing a local alignment gives us 94.7% similarity.
 
 The template for searching primers is as follows; the site that we are looking should be structured as follows:
 
@@ -17,12 +14,10 @@ PAM_SITE ----> CRISPR_RNA ----> CAS12
 
 In base pair format: TTTV-NNNNNNNNNNNNNNNNNNNN
 
-Description: The **PAM site** should be begin with three Ts and end in a non-T base pair.
-             The **CRISPR RNA** (crRNA) site  (which will be the primer template) should be 20 bp long without containin\
-g a PAM pattern (a TTT pattern)
+Description: The **PAM site** should begin with three Ts and end in a non-T base pair.
+             The **CRISPR RNA** (crRNA) site  (which will be the primer template) should be 20 bp long without containing a PAM pattern (a TTT pattern).
 
-Now what we would like to find out is a PAM_guide site that would be distinctive to salmon and not align with trouts\
-. In the paper we used as a guide, the PAMsite they selected was:
+What we want to find out is a PAM_guide site that would be distinctive to salmon and not align with the trout's. In the paper we used as a guide, the PAMsite they selected was:
 
     Salmon Site
     TTTC TACCCTCCAAAACCCCTATC
@@ -33,22 +28,19 @@ Now what we would like to find out is a PAM_guide site that would be distinctive
     Trout Site:
     TTCC TCCCCTCCAAAACCCCCGTC
 
-Therefore when comparting the two sequences,we want to find a site that has:
+Therefore when comparing the two sequences, we want to find a site that has:
 
 -The correct PAM site structure.
--A guide RNA that is different enough so as, if the PAM site is misidentified, the crRNA wont bind to the other site\
-.
+-A guide RNA that is different enough so as, if the PAM site is misidentified, the crRNA will not bind to the other sites.
 
 So the short version of the steps we take to do this goes as follows.
 
 1. Download the two files containing the complete mitochondrion sequence.
 2. With the species of interest, identify all sequences that are potential crRNA sites, isolate and index them.
 3. Do a local alignment between the crRNA sequences and the mitochondrial genome of the compared species.
-4. Find which is the lowest level of similarity between the aligned forms (out of 20) and select those sequences.
-   *might also be useful to make sure that the two sequences belong to the same gene region, just to make sure we ar\
-e looking at the same site.
-5. For one extra safety step, if there are more than one sites that have the same level of similarity, look at the P\
-AM sites of these sequences and select for the ones that are not initiated by a PAM site.
+4. Find which has the lowest level of similarity between the aligned forms (out of 20) and select those sequences.
+   (might also be useful to ensure that the two sequences belong to the same gene region, just to make sure that we are looking at the same site.)
+5. For one extra safety step, if there are more than one sites that have the same level of similarity, look at the PAM sites of these sequences and select for the ones that are not initiated by a PAM site.
 
 =======
 **The pipeline (at some point I will compile everything together)**
@@ -90,5 +82,3 @@ ng the same unique numerical identifies for their FASTA id.
           - aligns those sequences with the file
 
 Output file: output_file.txt
-
-
