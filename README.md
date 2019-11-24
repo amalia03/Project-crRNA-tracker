@@ -1,7 +1,7 @@
 # Project crRNA tracker
-My pipeline that locates potential Crispr primer regions for eDNA analysis. 
+My pipeline for identifying potential Crispr primer regions for eDNA analysis. 
 
-This walkthrough shall explain how the crRNA selection pipeline works.
+This file explains how the crRNA selection pipeline works.
 
 First we select two species: our species of interest and a close relative. In this case we have the complete mitochondrion of Atlantic Salmon and Atlantic trout.
 
