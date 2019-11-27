@@ -82,3 +82,8 @@ ng the same unique numerical identifies for their FASTA id.
           - aligns those sequences with the file
 
 Output file: output_file.txt
+
+--- 
+**parse_water_check_pams_min.pl**
+
+
