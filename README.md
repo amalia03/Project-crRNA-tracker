@@ -1,13 +1,21 @@
 # Project crRNA tracker
 My pipeline for identifying potential Crispr primer regions for eDNA analysis. 
 
+The concept is based on the research paper below which can identify salmon DNA among other environmental DNA. 
+
+Paper: Williams, M., O’Grady, J., Ball, B., Carlsson, J., Eyto, E., McGinnity, P., … Parle‐McDermott, A. (2019). The application of CRISPR‐Cas for single species identification from environmental DNA. Molecular Ecology Resources.  
+doi: 10.1111/1755‐0998.13045 
+
+========
+August, 2019
+
 This file explains how the crRNA selection pipeline works.
 
-First we select two species: our species of interest and a close relative. In this case we have the complete mitochondrion of Atlantic Salmon and Atlantic trout.
+First we select two species: our species of interest and a close relative. As an example we will be using the same sequences as in Williams et al's paper 2019 have the complete mitochondrion of Atlantic Salmon and Atlantic trout.
 
 For the record, doing a quick global alignment between the two mitochondria using Waterman-Smith gives us 83.9% similarity between the two sequences. The low similarity is because both of them have extended tailing ends so doing a local alignment gives us 94.7% similarity.
 
-The template for searching primers is as follows; the site that we are looking should be structured as follows:
+The template for searching primers is as follows; the site that we are looking should be structured as such:
 
 
 PAM_SITE ----> CRISPR_RNA ----> CAS12
@@ -33,7 +41,7 @@ Therefore when comparing the two sequences, we want to find a site that has:
 -The correct PAM site structure.
 -A guide RNA that is different enough so as, if the PAM site is misidentified, the crRNA will not bind to the other sites.
 
-So the short version of the steps we take to do this goes as follows.
+So the short version of the steps we take to do are the following.
 
 1. Download the two files containing the complete mitochondrion sequence.
 2. With the species of interest, identify all sequences that are potential crRNA sites, isolate and index them.
@@ -84,6 +92,15 @@ ng the same unique numerical identifies for their FASTA id.
 Output file: output_file.txt
 
 --- 
+15.10.2019
+
+I did compile nearly everything together here:
+
 **parse_water_check_pams_min.pl**
+
+Input file: subj_Fasta, reference_FASTA (in the same directory as the script for now)
+SHould have the updated watering_sequences.sh file available in the same directory too. 
+Function: Performs all the steps described above in one commnad. 
+Output file: 
 
 
