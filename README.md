@@ -25,7 +25,7 @@ In base pair format: TTTV-NNNNNNNNNNNNNNNNNNNN
 Description: The **PAM site** should begin with three Ts and end in a non-T base pair.
              The **CRISPR RNA** (crRNA) site  (which will be the primer template) should be 20 bp long without containing a PAM pattern (a TTT pattern).
 
-What we want to find out is a PAM_guide site that would be distinctive to salmon and not align with the trout's. In the paper we used as a guide, the PAMsite they selected was:
+What we want to find out is a PAM_guide site that is distinctive to salmon and does not align to the trout's sequence. In the paper we used as a guide, the PAMsite they selected was:
 
     Salmon Site
     TTTC TACCCTCCAAAACCCCTATC
