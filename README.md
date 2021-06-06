@@ -1,5 +1,6 @@
 # Project crRNA tracker
-My pipeline for identifying potential Crispr primer regions for eDNA analysis. 
+
+A pipeline for identifying potential Crispr primer regions for eDNA analysis. 
 
 The concept is based on the research paper below which can identify salmon DNA among other environmental DNA. 
 
